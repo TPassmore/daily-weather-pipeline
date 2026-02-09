@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    container_name: weather_pg
+    environment:
+      POSTGRES_USER: weather
+      POSTGRES_PASSWORD: weather
+      POSTGRES_DB: weather_dw
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata_weather:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weather -d weather_dw"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata_weather:
