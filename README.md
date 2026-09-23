@@ -51,7 +51,7 @@ Start PostgreSQL:
 docker compose up -d
 ```
 
-Default DB settings are already in `.env`:
+Create a `.env` file in the project root with these local development settings (or copy `.env.example`):
 
 ```env
 DB_HOST=localhost
@@ -70,7 +70,7 @@ Create and activate a virtual environment, then install dependencies:
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
-pip install requests psycopg[binary] python-dotenv
+pip install -r requirements.txt
 ```
 
 ## Run the Pipeline
